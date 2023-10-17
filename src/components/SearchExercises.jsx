@@ -20,6 +20,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
     const handleSearch = async () => {
         if(search) {
             const exercisesData = await fetchData(url, exerciseOptions)
+            // const searchExercises = exercisesData
             const searchExercises = exercisesData?.filter((exercise) => exercise?.name?.toLowerCase().includes(search) || exercise?.target?.toLowerCase().includes(search) || exercise?.equitment?.toLowerCase().includes(search) || exercise?.bodyPart?.toLowerCase().includes(search))
             setSearch('')
             setExercises(searchExercises)
